@@ -1,0 +1,43 @@
+package com.SflLegendAssembly.dtos;
+
+import java.time.LocalDateTime;
+
+public record LiveMachineStatus(
+    String machineCode,
+    String entityName,
+    Long id,
+    Integer finalStatus,
+    String barcode,
+    String operatorName,
+    Integer shift,
+    Float airGauge1Min,
+    Float airGauge1Actual,
+    Float airGauge1Max,
+    Integer airGauge1Status,
+    Float airGauge2Min,
+    Float airGauge2Actual,
+    Float airGauge2Max,
+    Integer airGauge2Status,
+    Float outerDiaMin,
+    Float outerDiaActual,
+    Float outerDiaMax,
+    Integer outerDiaStatus,
+    Float innerDiaMin,
+    Float innerDiaActual,
+    Float innerDiaMax,
+    Integer innerDiaStatus,
+    Float miniLoad,
+    Float actualLoad,
+    Float maxLoad,
+    Integer loadStatus,
+    Float minDisplacement,
+    Float actualDisplacement,
+    Float maxDisplacement,
+    Integer displacementStatus,
+    Integer okCount,
+    Integer notOkCount,
+    Integer totalPartCount,
+    Integer cycleTime,
+    LocalDateTime cycleStartTime,
+    LocalDateTime cycleEndTime) {
+}
