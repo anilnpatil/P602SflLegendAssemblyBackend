@@ -31,7 +31,7 @@ public class LiveDataServiceImpl implements LiveDataservice {
         LIVE_MACHINE_STATUS_ROW_MAPPER);
   }
 
-  private static LiveMachineStatus mapLiveMachineStatus(ResultSet resultSet, int rowNumber)
+  static LiveMachineStatus mapLiveMachineStatus(ResultSet resultSet, int rowNumber)
       throws SQLException {
     return new LiveMachineStatus(
         resultSet.getString("machine_code"),
