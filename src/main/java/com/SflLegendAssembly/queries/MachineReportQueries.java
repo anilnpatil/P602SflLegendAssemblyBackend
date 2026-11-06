@@ -40,6 +40,13 @@ public final class MachineReportQueries {
         + " ORDER BY cycle_start_time DESC, id DESC";
   }
 
+  public static String findByShiftAndDateRange(String machineCode) {
+    MachineTable machine = requireMachine(machineCode);
+    return select(machine)
+        + " WHERE shift = ? AND cycle_start_time >= ? AND cycle_start_time < ?"
+        + " ORDER BY cycle_start_time DESC, id DESC";
+  }
+
   private static MachineTable requireMachine(String machineCode) {
     MachineTable machine = MACHINES.get(machineCode);
     if (machine == null) {

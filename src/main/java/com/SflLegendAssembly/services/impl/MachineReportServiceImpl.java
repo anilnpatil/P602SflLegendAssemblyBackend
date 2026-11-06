@@ -1,6 +1,7 @@
 package com.SflLegendAssembly.services.impl;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -48,6 +49,20 @@ public class MachineReportServiceImpl implements MachineReportService {
         REPORT_ROW_MAPPER,
         startDate.atStartOfDay(),
         endDate.plusDays(1).atStartOfDay());
+  }
+
+  @Override
+  public List<LiveMachineStatus> findByShiftAndDateRange(
+      String machineCode,
+      Integer shift,
+      LocalDateTime startDateTime,
+      LocalDateTime endDateTime) {
+    return jdbcTemplate.query(
+        MachineReportQueries.findByShiftAndDateRange(machineCode),
+        REPORT_ROW_MAPPER,
+        shift,
+        startDateTime,
+        endDateTime);
   }
 
 }

@@ -12,8 +12,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.SflLegendAssembly.controllers.ReportController;
 import com.SflLegendAssembly.controllers.OverallReportController;
+import com.SflLegendAssembly.controllers.ProductionSummaryController;
 
-@RestControllerAdvice(assignableTypes = {ReportController.class, OverallReportController.class})
+@RestControllerAdvice(assignableTypes = {
+    ReportController.class,
+    OverallReportController.class,
+    ProductionSummaryController.class
+})
 public class ReportExceptionHandler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ReportExceptionHandler.class);

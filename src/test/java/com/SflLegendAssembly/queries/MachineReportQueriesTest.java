@@ -37,6 +37,11 @@ class MachineReportQueriesTest {
         .contains("max_displacement AS max_displacement")
         .contains("displacement_status AS displacement_status")
         .contains("NULL::real AS air_gauge1_min");
+
+    assertThat(MachineReportQueries.findByShiftAndDateRange("50-RH"))
+        .contains("FROM machine50rh")
+        .contains("WHERE shift = ? AND cycle_start_time >= ? AND cycle_start_time < ?")
+        .contains("ORDER BY cycle_start_time DESC, id DESC");
   }
 
   @Test
